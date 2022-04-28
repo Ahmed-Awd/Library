@@ -1,0 +1,72 @@
+#تثبيت المشروع
+
+
+
+<a name="section-1"></a>
+##git
+
+عنوان ال git repository على موقع bitbucket هوا
+
+https://bitbucket.org/smartlivesws/store-delivery/src/master/
+
+و تقوم بتنزيل ال repo عن طريق ال git
+
+```php
+git clone https://imaginaryking@bitbucket.org/smartlivesws/store-delivery.git
+```
+
+<a name="section-2"></a>
+##composer
+بعد تنزيل ال repo و الدخول على ال directory الخلص بها
+
+تقوم بتنصيب ال packages الخاصة ب composer عن طريق ال command
+```php
+composer install
+```
+
+<a name="section-3"></a>
+##npm
+تقوم بتنصيب ال packages الخاصة ب npm عن طريق ال command
+
+```php
+npm install
+```
+
+و بعدها تقوم بتشغيل command
+
+```php
+npm run dev
+```
+و التأكد ان كل شئ يتم بنجاح و تتم عملية ال build
+
+<a name="section-4"></a>
+##.env
+لأنشاء ملف .env قم بنسخ ملف .env.example من داخل ال directory الخاص ب ال repo و نسخه معا اعادة التسمية الى .env
+
+ثم قم بتفعيل ال command الأتي
+
+```php
+php artisan key:generate
+```
+
+<a name="section-5"></a>
+##DB migrate
+
+تثبيت جداول قاعدة البيانات عن طريق ال artisan migrate بال command التالى
+
+```php
+php artisan migrate
+```
+
+ثم نقوم بأضافة البيانات عن طريق ال seeders الموجودة عن طريق command 
+
+```php
+php artisan DB:seed
+```
+
+يمكنك ايضا أضافة بيانات  بشكل اختياري لاضافة بيانات تجريبية:
+(يجب أولا ان تقوم بإضافة البيانات الأساسية قبل تشغيل ال COMMAND التالي)
+
+```php
+php artisan db:seed --class=DemoSeeder
+```

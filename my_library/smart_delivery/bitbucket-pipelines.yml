@@ -1,0 +1,84 @@
+image: ammardev0/php:8.0
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: Prepare
+          script:
+            - composer install
+          artifacts:
+            - vendor/**
+          caches:
+            - composer
+      - step:
+          name: PHP Lint
+          script:
+            - ./vendor/bin/envoy run lint
+          condition:
+            changesets:
+              includePaths:
+                - "**.php"
+      - parallel:
+          - step:
+              name: PHP Code Style
+              script:
+                - ./vendor/bin/envoy run code-style-check
+              condition:
+                changesets:
+                  includePaths:
+                    - "**.php"
+  branches:
+    # master:
+    #   - step:
+    #       name: Prepare
+    #       script:
+    #         - composer install
+    #       artifacts:
+    #         - vendor/**
+    #       caches:
+    #         - composer
+    #   - step:
+    #       name: Deploy
+    #       deployment: production
+    #       script:
+    #           - ./vendor/bin/envoy run deploy
+
+    develop:
+      - step:
+          name: Prepare
+          script:
+            - composer global require "laravel/envoy"
+          artifacts:
+            - vendor/**
+          caches:
+            - composer
+      - step:
+          name: Deploy
+          deployment: staging
+          script:
+            - php ~/.composer/vendor/bin/envoy run deploy
+    next:
+      - step:
+          name: Prepare
+          script:
+            - composer global require "laravel/envoy"
+          artifacts:
+            - vendor/**
+          caches:
+            - composer
+      - step:
+          name: Deploy
+          deployment: next-version
+          script:
+            - php ~/.composer/vendor/bin/envoy run deploy --branch=next
+
+definitions:
+  services:
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_DATABASE: 'store_delivery'
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_USER: 'sail'
+        MYSQL_PASSWORD: 'password'

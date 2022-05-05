@@ -1,0 +1,1 @@
+https://webdevetc.com/blog/laravel-naming-conventions

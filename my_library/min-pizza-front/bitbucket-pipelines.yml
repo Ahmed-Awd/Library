@@ -1,0 +1,19 @@
+image: ammardev0/php:8.0
+
+pipelines:
+  branches:  
+    master:
+      - step:
+          name: Deploy
+          deployment: production
+          script:
+              - ssh root@18.202.102.29 "cd /var/www/cpanelminpizze && ./install.sh Production"
+
+    develop:
+      - step:
+          name: Deploy
+          deployment: staging
+          script:
+              - ssh root@18.202.102.29 "cd /var/www/cpanelminpizze && ./install.sh Development"
+        
+

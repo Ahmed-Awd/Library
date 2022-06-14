@@ -1,0 +1,146 @@
+body{
+  background: #fff;
+  color: #333;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+}
+.panel-heading{
+  margin: auto auto;
+  text-align: right;
+  float: right;
+  padding:20px 50px 0 0;
+  width: 400px;
+}
+.panel-body{
+
+}
+ h1 ,h2,h3{
+  padding: 0;
+  margin: 0;
+}
+.date_today{
+    margin: auto auto;
+    text-align: left;
+    float: left;
+    padding:40px 0 0 50px;
+    width: 400px;
+}
+.date_today h2{
+  font-weight: normal;
+}
+.ng-enter {
+  -webkit-transition: 0.0s;
+  transition: 0.0s;
+
+  margin-left: 100%;
+}
+
+.ng-enter-active {
+  margin-left: 0;
+}
+
+.ng-leave {
+  -webkit-transition: 0.0s;
+  transition: 0.0s;
+
+  margin-left: 0;
+}
+
+.ng-leave-active {
+  margin-left: 100%;
+}
+
+.ng-move {
+  -webkit-transition: 0.0s;
+  transition: 0.0s;
+  background: gold;
+}
+
+.ng-move-active {
+  background: #fff;
+}
+.requestContainer{
+  float: right;
+  width: 50%;
+}
+.DetailContainer{
+    float: left;
+    width: 50%;
+}
+.stDetailContainer{
+  width: 340px;
+  height: 450px;
+  margin: auto auto;
+  padding: 20px;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 35px -1px rgba(189,189,189,1);
+  -moz-box-shadow: 0px 0px 35px -1px rgba(189,189,189,1);
+  box-shadow: 0px 0px 35px -1px rgba(189,189,189,1);
+}
+.stDetailContainer img{
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 35px -1px rgba(189,189,189,1);
+  -moz-box-shadow: 0px 0px 35px -1px rgba(189,189,189,1);
+  box-shadow: 0px 0px 35px -1px rgba(189,189,189,1);
+  width: 150px;
+  height: 150px;
+}
+.stDetailContainer div{
+  font-size: 30px;
+  margin: 20px;
+}
+
+.clean{clear: both !important; margin: 40px;}
+
+#request {
+  float: right;
+  clear: both;
+  overflow:hidden;
+  overflow-y:auto;
+  width: 90%;
+  padding: 0;
+  margin: 20px;
+}
+
+#request li {
+  direction: rtl !important;
+  width: 95%;
+  border-bottom: #ccc 1px solid;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px;
+
+}
+
+#request> :first-child {
+  background-color: #f4f4f4;
+}
+
+#request .CallTime {
+  color: red;
+  font-weight: normal;
+}
+#request li .exitButton {
+  width: auto;
+  padding:8px 15px;
+  margin-right: 10px;
+  float: left;
+  background-color: red;
+  color:#fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.exitButton.ng-hide {
+  opacity: 0;
+}
+.exitButton.ng-hide-add,
+.exitButton.ng-hide-remove {
+  transition: all linear 0.0s;
+}
+
+.stName{ color: black;}
+.stCourse{ color: red;}
+.stClass{ color: red;}
+.callTime{ color: black;}
